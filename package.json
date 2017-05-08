@@ -1,0 +1,30 @@
+{
+  "name": "max-frequency-caller",
+  "version": "0.1.0",
+  "description": "Call a function with a max frequency",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whitelizard/max-frequency-caller.git"
+  },
+  "author": "Esbjörn Blomquist",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/whitelizard/max-frequency-caller/issues"
+  },
+  "homepage": "https://github.com/whitelizard/max-frequency-caller#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.4.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2"
+  }
+}
