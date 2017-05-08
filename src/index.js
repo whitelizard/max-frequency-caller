@@ -13,11 +13,11 @@ function timing(func, delay) {
 /**
  * Will run callback with latest arguments if at least delay since last call
  * @param  {Function} func  Callback to be runOk
- * @param  {Number} delay Minimum delay between calls
  * @param  {Array} args  Arguments for the call
+ * @param  {Number} delay Minimum delay between calls
  * @return undefined
  */
-export default function maxFreq(func, delay, args) {
+export default function maxFreq(func, args, delay) {
   if (runOk) {
     delayedArgs = undefined;
     runOk = false;
