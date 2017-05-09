@@ -1,29 +1,34 @@
-let runOk = true;
-let delayedArgs;
-
-function timing(func, delay) {
-  if (delayedArgs) {
-    func(...delayedArgs);
-    delayedArgs = undefined;
-    setTimeout(timing.bind(this, func, delay), delay);
-  } else {
-    runOk = true;
+export default class MaxFreq {
+  constructor(freq = 1) {
+    this.runOk = true;
+    this.delay = 1000 / freq;
   }
-}
-/**
- * Will run callback with latest arguments if at least delay since last call
- * @param  {Function} func  Callback to be runOk
- * @param  {Array} args  Arguments for the call
- * @param  {Number} delay Minimum delay between calls
- * @return undefined
- */
-export default function maxFreq(func, args, delay) {
-  if (runOk) {
-    delayedArgs = undefined;
-    runOk = false;
-    func(...args);
-    setTimeout(timing.bind(this, func, delay), delay);
-  } else {
-    delayedArgs = args;
+
+  _$call() {
+    if (this.delayedCall) {
+      const func = this.delayedCall[0];
+      const args = this.delayedCall[1];
+      func(...args);
+      this.delayedCall = undefined;
+      setTimeout(this._$call.bind(this), this.delay);
+    } else {
+      this.runOk = true;
+    }
+  }
+
+  /**
+   * Will run callback with latest arguments if at least delay since last call
+   * @param  {Function} func  Callback to be runOk
+   * @param  {Array} args  Arguments for the call
+   * @return undefined
+   */
+  call(func, args) {
+    if (this.runOk) {
+      this.runOk = false;
+      func(...args);
+      setTimeout(this._$call.bind(this), this.delay);
+    } else {
+      this.delayedCall = [func, args];
+    }
   }
 }

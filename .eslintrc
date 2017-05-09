@@ -4,7 +4,8 @@
 
   "rules": {
     "no-restricted-syntax": [0],
-    "no-mixed-operators": [0]
+    "no-mixed-operators": [0],
+    "no-underscore-dangle": [0]
   },
 
   "parserOptions": {
