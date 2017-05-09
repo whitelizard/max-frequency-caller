@@ -1,6 +1,6 @@
 {
   "name": "max-frequency-caller",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Call a function with a max frequency",
   "main": "index.js",
   "scripts": {
